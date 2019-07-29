@@ -1,0 +1,19 @@
+{
+  "name": "Mocha tests with API and WebSockets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env URL=https://api-pub.bitfinex.com/v2 WS_URL=wss://api-pub.bitfinex.com/ws/2 mocha --inspect tests --recursive --timeout 50000 --reporter mochawesome  "
+  },
+  "author": "Neeraj Jain",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chakram": "^1.5.0",
+    "cross-env": "^5.2.0",
+    "mocha": "^6.2.0",
+    "mochawesome": "^4.0.1",
+    "ws": "^7.1.1"
+  }
+}
