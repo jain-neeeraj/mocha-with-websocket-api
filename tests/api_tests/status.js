@@ -8,7 +8,6 @@ describe('Tests for status',()=>{
 
     it('should give result for the requested keys',async ()=>{
         let resp = await chakram.get(apiUrl.replace('{keys}','tBTCF0:USTF0'));  
-        debugger;      
         expect(resp.response.body.length).to.eq(1);
         expect(resp.response.statusCode).to.eq(200);        
     });

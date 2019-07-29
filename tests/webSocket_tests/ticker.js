@@ -29,7 +29,7 @@ describe('Ticker WebSocket Tests', () => {
         //this.timeout(50000);
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).event).to.equal('subscribed');
                 expect(JSON.parse(messages[0]).platform.status).to.equal(1);
                 done();
@@ -46,7 +46,7 @@ describe('Ticker WebSocket Tests', () => {
         w.send(msg);
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(messages.filter(key=>JSON.parse(key).event=="pong").length).to.equal(1);
                 done();
             }, 3000);
@@ -55,7 +55,7 @@ describe('Ticker WebSocket Tests', () => {
     it('Subscribed event should have channel name as ticker',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).channel).to.equal('ticker');
                 done();
             }, 3000);
@@ -64,7 +64,7 @@ describe('Ticker WebSocket Tests', () => {
     it('Should receive messages with the channel id',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 let channelId = JSON.parse(messages[1]).chanId;
                 expect(JSON.parse(messages[messages.length-1])[0]).to.equal(channelId);
                 done();
@@ -74,7 +74,7 @@ describe('Ticker WebSocket Tests', () => {
     it('Should have symbol name set to the subscribed symbol in subscribed event',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).symbol).to.equal('tBTCUSD');
                 done();
             }, 3000);

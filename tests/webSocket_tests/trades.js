@@ -28,7 +28,7 @@ describe('Trades WebSocket Tests', () => {
     it('Channel should get subscribed if the event is of type subscribe', function (done) {
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).event).to.equal('subscribed');
                 expect(JSON.parse(messages[0]).platform.status).to.equal(1);
                 done();
@@ -45,7 +45,7 @@ describe('Trades WebSocket Tests', () => {
         w.send(msg);
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(messages.filter(key=>JSON.parse(key).event=="pong").length).to.equal(1);
                 done();
             }, 3000);
@@ -54,7 +54,7 @@ describe('Trades WebSocket Tests', () => {
     it('Subscribed event should have channel name as trades',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).channel).to.equal('trades');
                 done();
             }, 3000);
@@ -63,7 +63,7 @@ describe('Trades WebSocket Tests', () => {
     it('Should receive messages with the channel id',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 let channelId = JSON.parse(messages[1]).chanId;
                 expect(JSON.parse(messages[messages.length-1])[0]).to.equal(channelId);
                 done();
@@ -73,7 +73,7 @@ describe('Trades WebSocket Tests', () => {
     it('Should have symbol name set to the subscribed symbol in subscribed event',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).symbol).to.equal('tBTCUSD');
                 done();
             }, 3000);
@@ -82,7 +82,7 @@ describe('Trades WebSocket Tests', () => {
     it('Should have pair name set to the correct pair as per symbol to pair mapping',(done)=>{
         if (messages.length == 0) {
             setTimeout(() => {
-                console.log("inside tests \n" + messages);
+                console.log(messages);
                 expect(JSON.parse(messages[1]).pair).to.equal('BTCUSD');
                 done();
             }, 3000);
