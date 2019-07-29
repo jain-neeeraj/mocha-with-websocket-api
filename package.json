@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cross-env URL=https://api-pub.bitfinex.com/v2 WS_URL=wss://api-pub.bitfinex.com/ws/2 mocha tests --recursive --timeout 50000 --reporter mochawesome  "
+    "test": "cross-env URL=https://api-pub.bitfinex.com/v2 WS_URL=wss://api-pub.bitfinex.com/ws/2 mocha tests --recursive --timeout 20000 --reporter mochawesome  "
   },
   "author": "Neeraj Jain",
   "license": "ISC",
