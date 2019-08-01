@@ -14,10 +14,10 @@ describe('Tests for status',()=>{
 
     it('should give an error in case of invalid request') //Trying a way to figure out to simulate bad request
 
-    it('status api response should give 11 metrics for the keys',async ()=>{
+    it('status api response should give 13 metrics for the keys',async ()=>{
         let resp = await chakram.get(apiUrl.replace('{keys}','tBTCF0:USTF0'));  
         expect(resp.response.statusCode).to.eq(200);    
-        expect(resp.response.body[0].length).to.eq(12);
+        expect(resp.response.body[0].length).to.eq(13);
     });
 
     
